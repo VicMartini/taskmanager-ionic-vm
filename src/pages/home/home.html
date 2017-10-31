@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mis tareas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<table style="width:100%">
+  <tr>
+    <th>Fecha</th>
+    <th>Horario de inicio</th>
+    <th>Horario de finalizacion</th>
+    <th>Ver descripcion</th>
+
+  </tr>
+</table>
+<div class = "div-table">
+<ion-list>
+    <ion-item *ngFor="let task of tasklist">{{task.name}}{{task.date}}</ion-item>
+</ion-list>
+</div>
+<button ion-button block (click)="openModal()">  <ion-icon name="add-circle"></ion-icon></button>
+</ion-content>
