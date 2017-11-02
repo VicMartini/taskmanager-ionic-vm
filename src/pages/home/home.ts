@@ -28,7 +28,7 @@ export class HomePage {
       myModal.present();
   };
 
-  openModal(this) {
+  openInformationModal(this) {
     let myModal = this.modalCtrl.create(InformationModalPage);
   myModal.onDidDismiss(data => {
       console.log(data)
