@@ -12,9 +12,9 @@
 <thead>
   <tr>
     <th>Fecha</th>
-    <th>Horario de inicio</th>
-    <th>Horario de finalizacion</th>
-    <th>Cliente</th>    
+    <th>Horario</th>
+    <th>Cliente</th>  
+    <th>Tarea</th>
     <th>Más</th>
   </tr>
 
@@ -22,12 +22,14 @@
 
 <tbody>
     <tr *ngFor="let task of list">
+
       <th><p>{{task.date}}</p></th>
-      <th><p>{{task.time_beggining}}</p></th>
-      <th><p>{{task.time_end}}<p></th>
-      <th><p>{{task.client}}<p></th>
+      <th><p>{{task.time_beggining}}<br>{{task.time_end}}</p></th>
+      <th><p>{{task.client}}</p></th>
+      <th><p>Rectificacion de matiladora diferencial sinusoidal recta <p></th>
+
       <th>
-        <button ion-button icon-only small>
+        <button ion-button icon-only small (click)="openModal()">
           <ion-icon  name="information-circle"></ion-icon>
         </button>
 

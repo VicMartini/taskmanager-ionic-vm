@@ -8,12 +8,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
 import { ModalPage } from '../pages/modal/modal';
+import { InformationModalPage } from '../pages/information-modal/information-modal';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ModalPage
+    ModalPage,
+    InformationModalPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,9 @@ import { ModalPage } from '../pages/modal/modal';
   entryComponents: [
     MyApp,
     HomePage,
-    ModalPage
+    ModalPage,
+    InformationModalPage
+
   ],
   providers: [
     StatusBar,
