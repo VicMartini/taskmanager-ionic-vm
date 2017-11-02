@@ -16,14 +16,19 @@ import { Storage } from '@ionic/storage';
 })
 export class ModalPage {
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public storage: Storage) {
+
 
   };
 
   saveData(this){
+    const uuidv4 = require('uuid/v4');
     console.log("ENTRA"+this.name+this.date)
-    let json_data = { "name": this.name, "date": this.date };
-    this.storage.set(`task ${ this.date }`, json_data);
+    let id =  uuidv4()
+    let json_data = {"id" : id,  "name": this.name, "date": this.date ,"time_beggining" : this.time_beggining,"time_end" : this.time_end,"client" : this.client};
+    this.storage.set(`${ id }`, json_data);
+    console.log(json_data)
     this.closeModal()
   };
 
@@ -31,7 +36,7 @@ export class ModalPage {
     console.log('ionViewDidLoad ModalPage');
   };
 
-  closeModal() {
+  closeModal(this) {
     this.viewCtrl.dismiss(this.name);
   };
 

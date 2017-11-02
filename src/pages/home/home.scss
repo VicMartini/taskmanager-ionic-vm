@@ -2,7 +2,22 @@ page-home {
 
 }
 
-.div-table{
-    overflow: scroll;
-    height: 70vh;
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #bbb;
+    font-weight: 100;
+
+}
+table p{
+	
+	font-weight:100;
+}
+td, th {
+    border-top: 1px solid #ddd;
+    padding: 4px 8px;
+}
+.tbod{
+	height: 70vh;
+	overflow:auto;
 }

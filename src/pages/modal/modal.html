@@ -21,17 +21,20 @@
 </ion-item>
 <ion-item>
   <ion-label color="primary">Horario de inicio</ion-label>
-  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time-beggining" ngDefaultControl></ion-datetime>
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_beggining" ngDefaultControl></ion-datetime>
 </ion-item>
 <ion-item>
   <ion-label color="primary">Horario de finalizacion</ion-label>
-  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time-end" ngDefaultControl></ion-datetime>
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_end" ngDefaultControl></ion-datetime>
 </ion-item>    
   <ion-item>
     <ion-label color="primary" ngDefaultControl>Encargado</ion-label>
     <ion-input  [(ngModel)]="name" ></ion-input>
   </ion-item>
-
+  <ion-item>
+    <ion-label color="primary" ngDefaultControl>Cliente</ion-label>
+    <ion-input  [(ngModel)]="client" ></ion-input>
+  </ion-item>
   <ion-item>
     <ion-textarea placeholder="Descripcion" ngDefaultControl></ion-textarea>
   </ion-item>

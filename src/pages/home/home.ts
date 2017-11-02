@@ -9,10 +9,12 @@ import { Storage } from '@ionic/storage';@Component({
 export class HomePage { 
 
     
- 
-tasklist:Array;
+ tasklist : any;
+ list : any;
+
   constructor(public navCtrl: NavController,public modalCtrl: ModalController,public storage: Storage ) {
       this.tasklist = []
+      this.list = []
       this.test()
   };
 
@@ -26,10 +28,14 @@ tasklist:Array;
   };
   test(){
     this.storage.forEach( (value, key, index) => {
-        console.log(value)
-    if (!(value in this.tasklist)){ this.tasklist.push(value)}     
-    console.log(this.tasklist)
+    if (!(this.tasklist.indexOf(key) >= 0)){
+      this.tasklist.push(key,value)
+      this.list.push(value)
+      console.log(index)
+    }     
 });
+
+    console.log(this.tasklist)
   };
 
 }
