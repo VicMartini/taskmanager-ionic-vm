@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 /**
  * Generated class for the InformationModalPage page.
@@ -15,11 +18,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InformationModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public storage: Storage) {
+    this.id_task = this.navParams.get('id');
+    Promise.all([
+    this.storage.get(this.id_task)
+]).then(data => {
+  this.description = data;
+  console.log(this.description,data)
+});
+console.log(this.description,"Here")
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InformationModalPage');
-  }
+
+
+  };
+
+
+  ionViewDidLoad(this) {
+
+
+    console.log('ionViewDidLoad ModalPage');
+
+
+
+  };
+
+  closeModal(this) {
+    this.viewCtrl.dismiss(this.name);
+  };
 
 }

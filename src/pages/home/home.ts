@@ -7,9 +7,9 @@ import { Storage } from '@ionic/storage';@Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage { 
+export class HomePage {
 
-    
+
  tasklist : any;
  list : any;
 
@@ -28,22 +28,24 @@ export class HomePage {
       myModal.present();
   };
 
-  openInformationModal(this) {
-    let myModal = this.modalCtrl.create(InformationModalPage);
+  openInformationModal(this,id) {
+    let obj = {'id': id}
+    let myModal = this.modalCtrl.create(InformationModalPage, obj);
   myModal.onDidDismiss(data => {
       console.log(data)
   });
       myModal.present();
   };
-  
-  
+
+
   test(){
     this.storage.forEach( (value, key, index) => {
     if (!(this.tasklist.indexOf(key) >= 0)){
       this.tasklist.push(key,value)
+      console.log(key)
       this.list.push(value)
       console.log(index)
-    }     
+    }
 });
 
     console.log(this.tasklist)

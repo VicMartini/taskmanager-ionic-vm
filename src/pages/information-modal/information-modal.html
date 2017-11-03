@@ -1,5 +1,5 @@
 <!--
-  Generated template for the InformationModalPage page.
+  Generated template for the ModalPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>InformationModal</ion-title>
+    <ion-title>Cargando una nueva tarea</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+<p [(ngModel)]="description"  ngDefaultControl></p>
+    <div id = "div-buttons">
+    <button class="halfbutton" ion-button block (click)="closeModal()">Cancelar</button>
+    <button class="halfbutton"  ion-button block (click)="saveData()">Guardar</button>
+</div>
 </ion-content>

@@ -26,8 +26,8 @@ export class ModalPage {
     const uuidv4 = require('uuid/v4');
     console.log("ENTRA"+this.name+this.date)
     let id =  uuidv4()
-    let json_data = {"id" : id,  "name": this.name, "date": this.date ,"time_beggining" : this.time_beggining,"time_end" : this.time_end,"client" : this.client};
-    this.storage.set(`${ id }`, json_data);
+    let json_data = {"id" : id,  "name": this.name, "date": this.date ,"time_beggining" : this.time_beggining,"time_end" : this.time_end,"client" : this.client,"description" : this.description};
+    this.storage.set(`${id}`, json_data);
     console.log(json_data)
     this.closeModal()
   };
