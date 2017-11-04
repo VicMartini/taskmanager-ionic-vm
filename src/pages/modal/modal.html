@@ -14,34 +14,35 @@
 
 
 <ion-content padding>
+  <form (ngSubmit)="saveData()">
 <ion-list>
 <ion-item>
   <ion-label color="primary">Fecha</ion-label>
-  <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" ngDefaultControl></ion-datetime>
+  <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date" name = "date"  ngDefaultControl></ion-datetime>
 </ion-item>
 <ion-item>
   <ion-label color="primary">Horario de inicio</ion-label>
-  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_beggining" ngDefaultControl></ion-datetime>
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_beggining" name = "time_beggining"  ngDefaultControl></ion-datetime>
 </ion-item>
 <ion-item>
   <ion-label color="primary">Horario de finalizacion</ion-label>
-  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_end" ngDefaultControl></ion-datetime>
-</ion-item>    
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="time_end" name = "time_end"  ngDefaultControl></ion-datetime>
+</ion-item>
   <ion-item>
-    <ion-label color="primary" ngDefaultControl>Encargado</ion-label>
-    <ion-input  [(ngModel)]="name" ></ion-input>
+    <ion-label color="primary" ngDefaultControl required>Encargado</ion-label>
+    <ion-input  [(ngModel)]="name" name = "name"  ></ion-input>
   </ion-item>
   <ion-item>
     <ion-label color="primary" ngDefaultControl>Cliente</ion-label>
-    <ion-input  [(ngModel)]="client" ></ion-input>
+    <ion-input  [(ngModel)]="client" name = "client"  ></ion-input>
   </ion-item>
   <ion-item>
-    <ion-textarea placeholder="Descripcion"  [(ngModel)]="description" ngDefaultControl></ion-textarea>
+    <ion-textarea placeholder="Descripcion"  [(ngModel)]="description" name = "description" ngDefaultControl></ion-textarea>
   </ion-item>
 </ion-list>
-    
+<button class="halfbutton"  ion-button block (click)="">Guardar</button>
+</form>
     <div id = "div-buttons">
-    <button class="halfbutton" ion-button block (click)="closeModal()">Cancelar</button>
-    <button class="halfbutton"  ion-button block (click)="saveData()">Guardar</button>
-</div>    
+    <button class="halfbutton" ion-button block type="submit">Cancelar</button>
+</div>
 </ion-content>

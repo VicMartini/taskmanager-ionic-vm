@@ -16,22 +16,21 @@ import { Storage } from '@ionic/storage';
   selector: 'page-information-modal',
   templateUrl: 'information-modal.html',
 })
+
+
 export class InformationModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public storage: Storage) {
-    this.id_task = this.navParams.get('id');
-    Promise.all([
-    this.storage.get(this.id_task)
-]).then(data => {
-  this.description = data;
-  console.log(this.description,data)
-});
-console.log(this.description,"Here")
+  description : any;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public storage: Storage) {
+
+    this.description = "A";
+    this.storage.get( this.navParams.get('id')).then((value) => {
+      this.description = value.description;
+  });
 
 
   };
-
 
   ionViewDidLoad(this) {
 

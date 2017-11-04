@@ -7,16 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cargando una nueva tarea</ion-title>
+    <ion-title>Más informacion</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<p [(ngModel)]="description"  ngDefaultControl></p>
+<b>Descripción:</b>
+<p ngDefaultControl>{{description}}</p>
     <div id = "div-buttons">
-    <button class="halfbutton" ion-button block (click)="closeModal()">Cancelar</button>
-    <button class="halfbutton"  ion-button block (click)="saveData()">Guardar</button>
+    <button class="halfbutton" ion-button block (click)="closeModal()">Volver</button>
 </div>
 </ion-content>
