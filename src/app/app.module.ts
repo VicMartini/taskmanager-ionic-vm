@@ -10,6 +10,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ModalPage } from '../pages/modal/modal';
 import { InformationModalPage } from '../pages/information-modal/information-modal';
 
+import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -19,6 +22,7 @@ import { InformationModalPage } from '../pages/information-modal/information-mod
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
