@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
