@@ -3,7 +3,6 @@ import { IonicPageModule } from 'ionic-angular';
 import { IonicModule } from 'ionic-angular';
 
 import { ModalPage } from './modal';
-import { Storage } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
@@ -14,8 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
     IonicPageModule.forChild(ModalPage),
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicModule.forRoot(ModalPage),
   ],
 })
 export class ModalPageModule {}
