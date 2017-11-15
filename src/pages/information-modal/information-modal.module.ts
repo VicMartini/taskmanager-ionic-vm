@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
     InformationModalPage,
   ],
   imports: [
+    IonicStorageModule.forRoot(),
     IonicPageModule.forChild(InformationModalPage),
   ],
 })

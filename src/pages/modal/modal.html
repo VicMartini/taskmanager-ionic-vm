@@ -16,22 +16,27 @@
 <ion-content padding>
   <form [formGroup]="taskForm" (ngSubmit)="saveData()">
 <ion-list>
-<ion-item>
-  <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['date'].valid || this.taskForm.controls['date'].pristine)}"  color="primary"  required>Fecha</ion-label>
+<ion-item  [ngClass]="{' item-input ng-pristine ng-invalid ng-touched': !(this.taskForm.controls['date'].valid || this.taskForm.controls['date'].pristine)}">
+  <ion-label   color="primary"  required>Fecha</ion-label>
   <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="taskInfo.date" name = "date"  formControlName = "date"  (click)="setNotPristine('date')"></ion-datetime>
 </ion-item>
 
 
-<ion-item>
-  <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['time_beggining'].valid || this.taskForm.controls['time_beggining'].pristine)}"  color="primary"  required>Horario de inicio</ion-label>
+<ion-item [ngClass]="{' item-input ng-pristine ng-invalid ng-touched': !(this.taskForm.controls['time_beggining'].valid || this.taskForm.controls['time_beggining'].pristine)}">
+  <ion-label   color="primary"  required>Horario de inicio</ion-label>
   <ion-datetime displayFormat="HH:mm" [(ngModel)]="taskInfo.time_beggining" name = "time_beggining"  formControlName = "time_beggining"  (click)="setNotPristine('time_beggining')"></ion-datetime>
 </ion-item>
-<ion-item>
-  <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['time_end'].valid || this.taskForm.controls['time_end'].pristine)}"  color="primary"  required>Horario de finalizacion</ion-label>
+<ion-item  [ngClass]="{' item-input ng-pristine ng-invalid ng-touched': !(this.taskForm.controls['time_end'].valid || this.taskForm.controls['time_end'].pristine)}">
+  <ion-label  color="primary"  required>Horario de finalizacion</ion-label>
   <ion-datetime displayFormat="HH:mm" [(ngModel)]="taskInfo.time_end" name = "time_end"  formControlName = "time_end"   (click)="setNotPristine('time_end')"></ion-datetime>
 </ion-item>
-  <ion-item>
-    <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['name'].valid || this.taskForm.controls['name'].pristine)}"  color="primary"  required>Encargado</ion-label>
+<ion-item [ngClass]="{' ng-touched': !(this.taskForm.controls['task_name'].pristine),'ng-invalid': !(this.taskForm.controls['task_name'].valid)}">
+  <ion-label  color="primary"  required>Tarea</ion-label>
+  <ion-input    [(ngModel)]="taskInfo.task_name" name = "client"  formControlName = "task_name" ></ion-input>
+</ion-item>
+
+  <ion-item [ngClass]="{'ng-touched': !(this.taskForm.controls['name'].valid || this.taskForm.controls['name'].pristine)}">
+    <ion-label   color="primary"  required>Encargado</ion-label>
 
     <ion-input  [(ngModel)]="taskInfo.name" name = "name"  formControlName = "name" ></ion-input>
   </ion-item>
@@ -39,13 +44,13 @@
 
 
   <ion-item [ngClass]="{'ng-touched': !(this.taskForm.controls['client'].pristine),'ng-invalid': !(this.taskForm.controls['client'].valid)}">
-    <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['client'].valid || this.taskForm.controls['client'].pristine)}"  color="primary"  required>Cliente</ion-label>
+    <ion-label  color="primary"  required>Cliente</ion-label>
     <ion-input    [(ngModel)]="taskInfo.client" name = "client"  formControlName = "client" ></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label [ngClass]="{'red-label': !(this.taskForm.controls['description'].valid || this.taskForm.controls['description'].pristine)}"  color="primary"  required>Descripcion</ion-label>
+  <ion-item [ngClass]="{'ng-touched': !(this.taskForm.controls['description'].valid || this.taskForm.controls['description'].pristine)}">
+    <ion-label   color="primary"  required>Descripcion</ion-label>
 
-    <ion-textarea [(ngModel)]="description" name = "description"formControlName = "description"></ion-textarea>
+    <ion-textarea [(ngModel)]="taskInfo.description" name = "description" formControlName = "description"></ion-textarea>
   </ion-item>
 </ion-list>
 <button  type="submit"  ion-button block >Guardar</button>

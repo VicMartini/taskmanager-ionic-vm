@@ -18,5 +18,8 @@
 <p ngDefaultControl>{{description}}</p>
     <div id = "div-buttons">
     <button class="halfbutton" ion-button block (click)="closeModal()">Volver</button>
+    <button ion-button icon-only  (click) = "deleteThisItem()" >
+      <ion-icon  name="trash" ></ion-icon>
+    </button>
 </div>
 </ion-content>

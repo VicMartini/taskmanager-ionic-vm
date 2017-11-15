@@ -24,7 +24,7 @@ import 'rxjs/Rx';
 export class ModalPage {
 
   taskForm: FormGroup;
-  taskInfo: {date : string, time_beggining : string, time_end : string, name : string, client : string ,description : string} = {date : '', time_beggining : '', time_end : '', name : '', client : '' ,description : ''};
+  taskInfo: {id : string, date : string, time_beggining : string, time_end : string, name : string, client : string ,description : string,task_name : string} = {id : '',date : '', time_beggining : '', time_end : '', name : '', client : '' ,description : '', task_name : ''};
 
   task : any;
 
@@ -41,6 +41,8 @@ export class ModalPage {
       'name': ['', [Validators.required]],
       'client': ['', [Validators.required]],
       'description': ['', [Validators.required]],
+      'task_name': ['', [Validators.required]],
+
 
     });
   };
@@ -48,12 +50,12 @@ export class ModalPage {
 
 
 setNotPristine(param){
-
+/**
     this.http.get('http://127.0.0.1:8000/users/').subscribe(data => {
       this.results = data['results'];
       console.log(this.results);
     });
-
+**/
 
 this.taskForm.controls[param].markAsDirty();
 this.taskForm.controls[param].markAsTouched();
@@ -63,11 +65,16 @@ this.taskForm.controls[param].markAsTouched();
     if (this.taskForm.valid == true){
     const uuidv4 = require('uuid/v4');
     let id =  uuidv4()
+    this.taskInfo.id = id;
     this.storage.set(`${id}`, this.taskInfo);
     this.closeModal()
 }else{
+  console.log(this.taskInfo.description)
+
   for (let i in this.taskInfo){
-    this.setNotPristine(i)
+  if (i != 'id'){
+    this.setNotPristine(i);
+  };
   }
   let alert = this.alertCtrl.create({
     message: 'Por favor, llene los campos marcados en rojo',

@@ -28,17 +28,21 @@ export class HomePage {
       myModal.present();
   };
 
-  openInformationModal(this,id) {
+  openInformationModal(id) {
+    console.log(id);
     let obj = {'id': id}
     let myModal = this.modalCtrl.create(InformationModalPage, obj);
   myModal.onDidDismiss(data => {
-      console.log(data)
+      console.log(data,"dismiss")
+      this.test();
   });
       myModal.present();
   };
 
 
   test(){
+    this.tasklist = [];
+    this.list = [];
     this.storage.forEach( (value, key, index) => {
     if (!(this.tasklist.indexOf(key) >= 0)){
       this.tasklist.push(key,value)
