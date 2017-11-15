@@ -30,7 +30,7 @@ export class HomePage {
 
   openInformationModal(id) {
     console.log(id);
-    let obj = {'id': id}
+    let obj = {'id': id};
     let myModal = this.modalCtrl.create(InformationModalPage, obj);
   myModal.onDidDismiss(data => {
       console.log(data,"dismiss")
